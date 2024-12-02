@@ -1,0 +1,139 @@
+@startuml
+
+' Clases principales
+class Juego {
+    - nombre : String
+    - version : String
+    + iniciar() : void
+    + finalizar() : void
+}
+
+class Jugador {
+    - nombre : String
+    - vidas : int
+    + mover() : void
+    + saltar() : void
+    + recogerBonificacion() : void
+}
+
+class Nivel {
+    - numero : int
+    - descripcion : String
+    + iniciar() : void
+    + finalizar() : void
+}
+
+class Obstaculo {
+    - tipo : String
+    - dano : int
+    + interactuar() : void
+}
+
+class Bonificacion {
+    - tipo : String
+    - puntos : int
+    + recoger() : void
+}
+
+class Enemigo {
+    - nombre : String
+    - velocidad : int
+    + mover() : void
+    + atacar() : void
+}
+
+class Plataforma {
+    - tipo : String
+    + soportarJugador() : void
+}
+
+class Trampolin {
+    - elasticidad : int
+    + lanzar() : void
+}
+
+class Vehiculo {
+    - tipo : String
+    + avanzar() : void
+    + detener() : void
+}
+
+class Leon extends Vehiculo {
+}
+
+class BolaRodante extends Vehiculo {
+}
+
+' Relaciones principales
+Juego "1" --o "1..*" Nivel
+Nivel "1" --o "1..*" Obstaculo
+Nivel "1" --o "1..*" Bonificacion
+Nivel "1" --o "1..*" Enemigo
+Jugador "1" --* Juego
+Jugador "1" --o Nivel
+Jugador "1" --o Vehiculo
+Jugador "1" --o Plataforma
+Jugador "1" --o Trampolin
+Jugador "1" --o Bonificacion
+Obstaculo "1" --|> Enemigo
+
+' Clases adicionales para enriquecer el modelo
+class AroDeFuego extends Obstaculo {
+    - temperatura : int
+    + atravesar() : void
+}
+
+class Mono extends Enemigo {
+    - tipoMovimiento : String
+    + saltar() : void
+}
+
+class Barrera extends Obstaculo {
+    - altura : int
+    + destruir() : void
+}
+
+class Moneda extends Bonificacion {
+}
+
+class Reloj extends Bonificacion {
+    - tiempoExtra : int
+}
+
+class Escenario {
+    - tipo : String
+    - fondo : String
+}
+
+class Animacion {
+    - nombre : String
+    - duracion : int
+}
+
+class Control {
+    - tipo : String
+    + presionarBoton() : void
+}
+
+class Sonido {
+    - tipo : String
+    + reproducir() : void
+}
+
+Juego "1" --o Escenario
+Escenario "1" --o Animacion
+Juego "1" --o Sonido
+Juego "1" --o Control
+
+' Relación de herencia para vehículos y obstáculos
+Vehiculo "1" --|> Leon
+Vehiculo "1" --|> BolaRodante
+Obstaculo "1" --|> AroDeFuego
+Obstaculo "1" --|> Barrera
+Bonificacion "1" --|> Moneda
+Bonificacion "1" --|> Reloj
+
+@enduml
+
+
+""He utilizado las relaciones usa, tiene y es representadas por --o, --* y --|>, respectivamente. (Nota: No recuerdo exactamente cual es cual XD)""
