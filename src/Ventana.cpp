@@ -5,7 +5,7 @@ using namespace std;
 int main()
 {
     // Crear una ventana de SFML
-    sf::RenderWindow window(sf::VideoMode(1000, 600), "Circus Manolo");
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Circus Manolo");
 
     // Crear una forma ,circular de SFML
     sf::Texture fondoTextura;
@@ -13,7 +13,13 @@ int main()
         cout<<"error";
         return -1;
     }
+    sf::Texture charlieNormal;
+    if(!charlieNormal.loadFromFile("./assets/sprites/CircusCharlieSprite.png")){
+        cout<<"error";
+        return -1;
+    }
     sf::Sprite fondo(fondoTextura);
+    //sf::Sprite fondo(charlieNormal);
 
     while (window.isOpen())
     {
