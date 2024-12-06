@@ -1,13 +1,19 @@
 #include <SFML/Graphics.hpp>
+#include <iostream>
+using namespace std;
 
 int main()
 {
     // Crear una ventana de SFML
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+    sf::RenderWindow window(sf::VideoMode(1000, 600), "Circus Manolo");
 
-    // Crear una forma circular de SFML
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+    // Crear una forma ,circular de SFML
+    sf::Texture fondoTextura;
+    if(!fondoTextura.loadFromFile("./assets/sprites/stage1.png")){
+        cout<<"error";
+        return -1;
+    }
+    sf::Sprite fondo(fondoTextura);
 
     while (window.isOpen())
     {
@@ -23,7 +29,7 @@ int main()
         window.clear();
 
         // Dibujar la forma en la ventana
-        window.draw(shape);
+        window.draw(fondo);
 
         // Mostrar la ventana
         window.display();
