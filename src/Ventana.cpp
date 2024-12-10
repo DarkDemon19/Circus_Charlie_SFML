@@ -13,11 +13,11 @@ int main()
         cout<<"error";
         return -1;
     }
-    sf::Texture charlieNormal;
+    /*sf::Texture charlieNormal;
     if(!charlieNormal.loadFromFile("./assets/sprites/CircusCharlieSprite.png")){
         cout<<"error";
         return -1;
-    }
+    }*/
     sf::Sprite fondo(fondoTextura);
     //sf::Sprite fondo(charlieNormal);
 
