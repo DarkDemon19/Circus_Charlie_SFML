@@ -1,6 +1,6 @@
-#include "..\include\Bird.hpp"
+#include "..\include\Manolo.hpp"
 
-Bird::Bird(int x, int y)
+Manolo::Manolo(int x, int y)
 {
     vida = true;
     iniciado = false;
@@ -27,7 +27,7 @@ Bird::Bird(int x, int y)
     sprite.setScale(2, 2);
 }
 
-void Bird::Actualizar()
+void Manolo::Actualizar()
 {
     if (!vida)
     {
@@ -60,33 +60,33 @@ void Bird::Actualizar()
     }
 }
 
-void Bird::Saltar()
+void Manolo::Saltar()
 {
     mover = -8;
     sprite.setRotation(-15);
 }
 
-sf::Vector2f Bird::ObtenerPosicion()
+sf::Vector2f Manolo::ObtenerPosicion()
 {
     return sprite.getPosition();
 }
 
-bool Bird::ObtenerVida()
+bool Manolo::ObtenerVida()
 {
     return vida;
 }
 
-void Bird::Muerte()
+void Manolo::Muerte()
 {
     vida = false;
 }
 
-void Bird::Iniciado()
+void Manolo::Iniciado()
 {
     iniciado = true;
 }
 
-void Bird::draw(sf::RenderTarget &rt, sf::RenderStates rs) const
+void Manolo::draw(sf::RenderTarget &rt, sf::RenderStates rs) const
 {
     rt.draw(sprite, rs);
 }

@@ -1,19 +1,19 @@
 #pragma once
 #include <iostream>
 #include "SFML/Graphics.hpp"
-#include "Bird.hpp"
+#include "Manolo.hpp"
 #include "Sonido.hpp"
-#include "Paralaje.hpp"
+#include "Variacion_de_posicion.hpp"
 
-class Juego
+class Videojuego
 {
 public:
-    Juego() {}
-    ~Juego() {}
+    Videojuego() {}
+    ~Videojuego() {}
     void Ventana();
 };
 
-void Juego::Ventana()
+void Videojuego::Ventana()
 {
     sf::Texture fondoTextura;
     sf::Sprite fondo;
@@ -30,7 +30,7 @@ void Juego::Ventana()
     bool inciado;
     bool presionado;
 
-    sf::RenderWindow ventana(sf::VideoMode(400, 700), "Flappy Bird");
+    sf::RenderWindow ventana(sf::VideoMode(400, 700), "Flappy Manolo");
     ventana.setFramerateLimit(60);
 
     presionado = false;
@@ -43,8 +43,8 @@ void Juego::Ventana()
 
     while (ventana.isOpen())
     {
-        Bird *bird = new Bird(210, 350);
-        Paralaje *paralaje = new Paralaje();
+        Manolo *manolo = new Manolo(210, 350);
+        Variacion_de_posicion *variacion_de_posicion = new Variacion_de_posicion();
         inciado = false;
         Sonido *sonido = new Sonido();
         sonido->Incializado(false);
@@ -59,20 +59,20 @@ void Juego::Ventana()
                     return;
                 }
             }
-            bird->Actualizar();
-            if (bird->ObtenerVida())
+            manolo->Actualizar();
+            if (manolo->ObtenerVida())
             {
-                paralaje->Actualizar();
+                variacion_de_posicion->Actualizar();
                 if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !presionado)
                 {
-                    bird->Saltar();
+                    manolo->Saltar();
                     presionado = true;
                     sonido->Aleteo();
                     if (!inciado)
                     {
                         inciado = true;
-                        bird->Iniciado();
-                        paralaje->Iniciado();
+                        manolo->Iniciado();
+                        variacion_de_posicion->Iniciado();
                         sonido->Incializado(true);
                     }
                 }
@@ -82,22 +82,22 @@ void Juego::Ventana()
                 sonido->GameOver();
             }
 
-            if (!bird->ObtenerVida() && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !presionado)
+            if (!manolo->ObtenerVida() && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !presionado)
             {
                 presionado = true;
                 break;
             }
 
-            sf::IntRect rect(bird->ObtenerPosicion().x - 23, bird->ObtenerPosicion().y - 21, 44, 40);
+            sf::IntRect rect(manolo->ObtenerPosicion().x - 23, manolo->ObtenerPosicion().y - 21, 44, 40);
 
-            if (paralaje->Colision(rect))
+            if (variacion_de_posicion->Colision(rect))
             {
-                bird->Muerte();
+                manolo->Muerte();
             }
 
-            if (bird->ObtenerPosicion().y < 0 || bird->ObtenerPosicion().y > 700 - 136)
+            if (manolo->ObtenerPosicion().y < 0 || manolo->ObtenerPosicion().y > 700 - 136)
             {
-                bird->Muerte();
+                manolo->Muerte();
             }
 
             if (!sf::Mouse::isButtonPressed(sf::Mouse::Left))
@@ -105,16 +105,16 @@ void Juego::Ventana()
                 presionado = false;
             }
 
-            sonido->DefinirPuntaje(paralaje->Puntaje());
+            sonido->DefinirPuntaje(variacion_de_posicion->Puntaje());
             ventana.clear();
             ventana.draw(fondo);
-            ventana.draw(*paralaje);
-            ventana.draw(*bird);
+            ventana.draw(*variacion_de_posicion);
+            ventana.draw(*manolo);
             ventana.draw(*sonido);
             ventana.display();
         }
-        delete bird;
-        delete paralaje;
+        delete manolo;
+        delete variacion_de_posicion;
         delete sonido;
     }
     return;

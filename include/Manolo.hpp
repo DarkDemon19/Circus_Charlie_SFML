@@ -2,7 +2,7 @@
 #include <iostream>
 #include "SFML/Graphics.hpp"
 
-class Bird : public sf::Drawable // Clase Bird de personaje principal
+class Manolo : public sf::Drawable // Clase Manolo de personaje principal
 {
 private:
     bool vida;
@@ -14,7 +14,7 @@ private:
     float mover;
 
 public:
-    Bird(int, int);
+    Manolo(int, int);
     void Actualizar();
     void Saltar();
     void Muerte();

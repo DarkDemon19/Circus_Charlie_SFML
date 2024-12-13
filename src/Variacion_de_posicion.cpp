@@ -1,12 +1,12 @@
-#include "..\include\Paralaje.hpp"
+#include "..\include\Variacion_de_posicion.hpp"
 
-Paralaje::Paralaje()
+Variacion_de_posicion::Variacion_de_posicion()
 {
     ultimo=-1;
-    posicionUltimoObstaculoPasado = -1;
+    posicionUltimoChoquesPasado = -1;
     iniciado=false;
     puntaje=0;
-    if(!obstaculoT.loadFromFile("assets/image/tubo.png"))
+    if(!choquesT.loadFromFile("assets/image/tubo.png"))
     {
         std::cout<<"Error al cargar la textura"<<std::endl;
     }
@@ -17,8 +17,8 @@ Paralaje::Paralaje()
 
     srand(time(NULL));
 
-    obstaculos.push_back(Obstaculo(obstaculoT,500,100+rand()%250));
-    obstaculos.push_back(Obstaculo(obstaculoT,850,100+rand()%250));
+    choques.push_back(Choques(choquesT,500,100+rand()%250));
+    choques.push_back(Choques(choquesT,850,100+rand()%250));
 
     sf::Sprite nSprite;
 
@@ -30,7 +30,7 @@ Paralaje::Paralaje()
     bases.push_back(nSprite);
 }
 
-void Paralaje::Actualizar()
+void Variacion_de_posicion::Actualizar()
 {
     for(int i=0;i<(int)bases.size();i++)
     {
@@ -48,48 +48,48 @@ void Paralaje::Actualizar()
         bases[i].move(-2.5f,0);
     }
     if(!iniciado) return;
-    int ultimo=(int)obstaculos.size()-1;
-    for(int i=0; i<(int)obstaculos.size(); i++)
+    int ultimo=(int)choques.size()-1;
+    for(int i=0; i<(int)choques.size(); i++)
 {
-    if(obstaculos[i].GetPosicion().x < 100 && obstaculos[i].GetPosicion().x > posicionUltimoObstaculoPasado)
+    if(choques[i].GetPosicion().x < 100 && choques[i].GetPosicion().x > posicionUltimoChoquesPasado)
     {
         puntaje += 10;
-        posicionUltimoObstaculoPasado = obstaculos[i].GetPosicion().x;
+        posicionUltimoChoquesPasado = choques[i].GetPosicion().x;
     }
-    if(obstaculos[i].GetPosicion().x <= -100)
+    if(choques[i].GetPosicion().x <= -100)
     {
-        obstaculos.erase(obstaculos.begin()+i);
+        choques.erase(choques.begin()+i);
         i--; // Ajustar el índice después de borrar
-        obstaculos.push_back(Obstaculo(obstaculoT, obstaculos[ultimo].GetPosicion().x+350, 100+rand()%250));
+        choques.push_back(Choques(choquesT, choques[ultimo].GetPosicion().x+350, 100+rand()%250));
         if(i < ultimo) ultimo--;
     }
 }
-        for(int i=0;i<(int)obstaculos.size();i++)
+        for(int i=0;i<(int)choques.size();i++)
         {
-            obstaculos[i].Actualizar();
+            choques[i].Actualizar();
         }
 }
 
-bool Paralaje::Colision(sf::IntRect rect)
+bool Variacion_de_posicion::Colision(sf::IntRect rect)
 {
-    for(int i=0;i<(int)obstaculos.size();i++)
+    for(int i=0;i<(int)choques.size();i++)
     {
-        if(obstaculos[i].Colision(rect)) return true;
+        if(choques[i].Colision(rect)) return true;
     }
     return false;
 }
 
-int Paralaje::Puntaje()
+int Variacion_de_posicion::Puntaje()
 {
     return puntaje;
 }
 
-void Paralaje::Iniciado()
+void Variacion_de_posicion::Iniciado()
 {
     iniciado=true;
 }
 
-void Paralaje::draw(sf::RenderTarget &rt, sf::RenderStates rs) const{
-	for(int i = 0; i < (int)obstaculos.size(); i++) rt.draw(obstaculos[i],rs);
+void Variacion_de_posicion::draw(sf::RenderTarget &rt, sf::RenderStates rs) const{
+	for(int i = 0; i < (int)choques.size(); i++) rt.draw(choques[i],rs);
 	for(int i = 0; i < (int)bases.size(); i++) rt.draw(bases[i],rs);
 }

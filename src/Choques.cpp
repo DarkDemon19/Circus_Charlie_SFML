@@ -1,6 +1,6 @@
-#include "../include/Obstaculo.hpp"
+#include "../include/Choques.hpp"
 
-Obstaculo::Obstaculo(sf::Texture &textura, int x, int y)
+Choques::Choques(sf::Texture &textura, int x, int y)
 {
     spriteSuperior.setTexture(textura);
     spriteInferior.setTexture(textura);
@@ -14,13 +14,13 @@ Obstaculo::Obstaculo(sf::Texture &textura, int x, int y)
     spriteInferior.setScale(1.5f,1.5f);
 }
 
-void Obstaculo::Actualizar()
+void Choques::Actualizar()
 {
     spriteSuperior.move(-2.5f,0);
     spriteInferior.move(-2.5f,0);
 }
 
-bool Obstaculo::Colision(sf::IntRect rect)
+bool Choques::Colision(sf::IntRect rect)
 {
     sf::IntRect rectUp(spriteSuperior.getPosition().x+4,spriteSuperior.getPosition().y-480,70,480);
     sf::IntRect rectDown(spriteInferior.getPosition().x+4,spriteInferior.getPosition().y,70,480);
@@ -31,12 +31,12 @@ bool Obstaculo::Colision(sf::IntRect rect)
     return false;
 }
 
-sf::Vector2f Obstaculo::GetPosicion()
+sf::Vector2f Choques::GetPosicion()
 {
     return spriteSuperior.getPosition();
 }
 
-void Obstaculo::draw(sf::RenderTarget &rt, sf::RenderStates rs) const
+void Choques::draw(sf::RenderTarget &rt, sf::RenderStates rs) const
 {
     rt.draw(spriteSuperior,rs);
     rt.draw(spriteInferior,rs);
