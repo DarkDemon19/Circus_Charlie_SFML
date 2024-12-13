@@ -3,12 +3,12 @@
 #include "SFML/Audio.hpp"
 #include <fstream>
 
-class Sonido : public sf::Drawable
+class Audio : public sf::Drawable
 {
 private:
-    sf::SoundBuffer *puntosBird;
-    sf::SoundBuffer golpeBird;
-    sf::SoundBuffer aleteoBird;
+    sf::SoundBuffer *puntosManolo;
+    sf::SoundBuffer golpeManolo;
+    sf::SoundBuffer aleteoManolo;
     sf::Music punto;
     sf::Sound aleteo;
     sf::Sound golpe;
@@ -25,7 +25,7 @@ private:
     sf::Sprite incializadoSprite;
 
 public:
-    Sonido();
+    Audio();
     void DefinirPuntaje(int);
     void Incializado(bool);
     void GameOver();

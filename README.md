@@ -1,12 +1,12 @@
 # Circus_Charlie_SFML
-Proyecto de Programación para diseñar un videojuego 2D inspirado en Circus Charlie de NES
+Proyecto de Programación para diseñar un videoVideojuego 2D inspirado en Circus Charlie de NES
 
 
 
 
 # Flappy Bird Game
 
-Este proyecto es una implementación simple del juego Flappy Bird en C, utilizando la biblioteca SFML. El juego presenta un pájaro que el jugador puede hacer saltar para evitar obstáculos en forma de tuberías que se desplazan hacia la izquierda.
+Este proyecto es una implementación simple del Videojuego Flappy Bird en C, utilizando la biblioteca SFML. El Videojuego presenta un pájaro que el jugador puede hacer saltar para evitar obstáculos en forma de tuberías que se desplazan hacia la izquierda.
 
 ## Estructura del Proyecto
 
@@ -22,9 +22,9 @@ El proyecto está estructurado de la siguiente manera:
 
 El diagrama de clases del proyecto incluye las siguientes clases:
 
-- **Bird**: Representa al pájaro en el juego.
+- **Bird**: Representa al pájaro en el Videojuego.
 - **Tubo**: Representa las tuberías que el pájaro debe evitar.
-- **Juego**: Controla la lógica del juego.
+- **Videojuego**: Controla la lógica del Videojuego.
 
 ## Integrantes:
 

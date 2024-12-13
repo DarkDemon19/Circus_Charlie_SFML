@@ -1,22 +1,22 @@
 #include <iostream>
 #include "SFML/Graphics.hpp"
 #include <time.h>
-#include "Choques.hpp" 
+#include "Obstaculo.hpp"
 
-class Variacion_de_posicion : public sf::Drawable
+class Paralaje : public sf::Drawable
 {
 private:
     int ultimo;
     int puntaje;
     bool iniciado;
-    sf::Texture choquesT;
+    sf::Texture obstaculoT;
     sf::Texture baseT;
     std::vector<sf::Sprite> bases;
-    std::vector<Choques> obstaculos;
-    int posicionUltimoChoquesPasado;
+    std::vector<Obstaculo> obstaculos;
+    int posicionUltimoObstaculoPasado;
 
 public:
-    Variacion_de_posicion();
+    Paralaje();
     void Actualizar();
     bool Colision(sf::IntRect);
     void Iniciado();

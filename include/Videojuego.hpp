@@ -2,7 +2,7 @@
 #include <iostream>
 #include "SFML/Graphics.hpp"
 #include "Manolo.hpp"
-#include "Sonido.hpp"
+#include "Audio.hpp"
 #include "Variacion_de_posicion.hpp"
 
 class Videojuego
@@ -35,7 +35,7 @@ void Videojuego::Ventana()
 
     presionado = false;
 
-    //Sonido sonido;
+    //Audio sonido;
     
     sf::Music punto;
     punto.openFromFile("assets/music/assets_music_musica.ogg");
@@ -46,7 +46,7 @@ void Videojuego::Ventana()
         Manolo *manolo = new Manolo(210, 350);
         Variacion_de_posicion *variacion_de_posicion = new Variacion_de_posicion();
         inciado = false;
-        Sonido *sonido = new Sonido();
+        Audio *sonido = new Audio();
         sonido->Incializado(false);
         while (true)
         {

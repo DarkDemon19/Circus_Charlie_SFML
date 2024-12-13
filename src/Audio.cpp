@@ -1,16 +1,16 @@
-#include "..\include\Sonido.hpp"
+#include "..\include\Audio.hpp"
 
-Sonido::Sonido()
+Audio::Audio()
 {
-    if (!this->puntosBird->loadFromFile("assets/music/punto.ogg"))
+    if (!this->puntosManolo->loadFromFile("assets/music/punto.ogg"))
     {
         std::cout << "Error al cargar el sonido" << std::endl;
     }
-    if (!golpeBird.loadFromFile("assets/music/golpe.ogg"))
+    if (!golpeManolo.loadFromFile("assets/music/golpe.ogg"))
     {
         std::cout << "Error al cargar el sonido" << std::endl;
     }
-    if (!aleteoBird.loadFromFile("assets/music/aleteo.ogg"))
+    if (!aleteoManolo.loadFromFile("assets/music/aleteo.ogg"))
     {
         std::cout << "Error al cargar el sonido" << std::endl;
     }
@@ -34,9 +34,9 @@ Sonido::Sonido()
     musica.setLoop(true);
     musica.play();
 
-    //punto.setBuffer(puntosBird);
-    //aleteo.setBuffer(aleteoBird);
-    //golpe.setBuffer(golpeBird);
+    //punto.setBuffer(puntosManolo);
+    //aleteo.setBuffer(aleteoManolo);
+    //golpe.setBuffer(golpeManolo);
 
     puntaje = 0;
     puntajeT.setFont(fuente);
@@ -64,7 +64,7 @@ Sonido::Sonido()
     incializadoSprite.setPosition(210, 280);
     incializadoSprite.setScale(1.5f, 1.5f);
 }
-void Sonido::DefinirPuntaje(int p)
+void Audio::DefinirPuntaje(int p)
 {
     //if (puntaje != p) {
     sf::Music punto;
@@ -75,7 +75,7 @@ void Sonido::DefinirPuntaje(int p)
     puntajeT.setString(std::to_string(puntaje));
     puntajeT.setOrigin(puntajeT.getGlobalBounds().width / 2, puntajeT.getGlobalBounds().height / 2);
 }
-void Sonido::Incializado(bool estado)
+void Audio::Incializado(bool estado)
 {
     incializado = estado;
     puntaje = 0;
@@ -88,7 +88,7 @@ void Sonido::Incializado(bool estado)
     puntajeT.setOrigin(puntajeT.getGlobalBounds().width / 2, puntajeT.getGlobalBounds().height / 2);
 }
 
-void Sonido::GameOver()
+void Audio::GameOver()
 {
     if (!gameOver)
         golpe.play();
@@ -101,12 +101,12 @@ void Sonido::GameOver()
     gameOver = true;
 }
 
-void Sonido::Aleteo()
+void Audio::Aleteo()
 {
     aleteo.play();
 }
 
-void Sonido::draw(sf::RenderTarget &rt, sf::RenderStates rs) const
+void Audio::draw(sf::RenderTarget &rt, sf::RenderStates rs) const
 {
     if (!incializado)
         rt.draw(incializadoSprite, rs);

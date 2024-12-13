@@ -2,7 +2,7 @@
 
 
 
-class Juego{
+class Videojuego{
     +Ventana()
 }
 
@@ -25,12 +25,12 @@ class Bird{
     +virtual void draw(RenderTarget, RenderStates)
 }
 
-class Obstaculo
+class Choques
 {
     -spriteSuperior
     -spriteInferior
 
-    +Obstaculo(sf::Texture,int,int)
+    +Choques(sf::Texture,int,int)
     +void Actualizar()
     +bool Colision(sf::IntRect)
     +GetPosicion()
@@ -38,7 +38,7 @@ class Obstaculo
 
 }
 
-class Paralaje
+class Variacion_de_posicion
 {
     -int ultimo
     -int puntaje
@@ -49,7 +49,7 @@ class Paralaje
     -obstaculos
     -int posicionUltimoObstaculoPasado
 
-    +Paralaje()
+    +Variacion_de_posicion()
     +void Actualizar()
     +bool Colision(sf::IntRect)
     +void Inciado()
@@ -57,7 +57,7 @@ class Paralaje
     +virtual void draw(RenderTarget, RenderStates)
 }
 
-class Sonido
+class Audio
 {
     -puntosBird
     -golpeBird
@@ -77,7 +77,7 @@ class Sonido
     -inicializadoTextura
     -inicializadoSprite
 
-    +Sonido()
+    +Audio()
     +void DefinirPuntaje(int)
     +void Incializado(bool)
     +void GameOver()
@@ -85,11 +85,11 @@ class Sonido
     +virtual void draw(RenderTarget, RenderStates)
 }
 
-Juego "1" *--  "1" Bird
-Juego "1" *-- "*" Obstaculo 
-Juego "1" <-- "1" Paralaje
-Juego "1" *-- "4" Sonido
-Paralaje "1" <-- "*" Obstaculo
+Videojuego "1" *--  "1" Bird
+Videojuego "1" *-- "*" Choques 
+Videojuego "1" <-- "1" Variacion_de_posicion
+Videojuego "1" *-- "4" Audio
+Variacion_de_posicion "1" <-- "*" Choques
 
 
 @enduml 

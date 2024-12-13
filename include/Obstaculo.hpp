@@ -1,14 +1,14 @@
 #include <iostream>
 #include "SFML/Graphics.hpp"
 
-class Choques : public sf::Drawable
+class Obstaculo : public sf::Drawable
 {
 private:
     sf::Sprite spriteSuperior;
     sf::Sprite spriteInferior;
 
 public:
-    Choques(sf::Texture &, int, int);
+    Obstaculo(sf::Texture &, int, int);
     void Actualizar();
     bool Colision(sf::IntRect);
     sf::Vector2f GetPosicion();

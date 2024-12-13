@@ -3,10 +3,10 @@
 Variacion_de_posicion::Variacion_de_posicion()
 {
     ultimo=-1;
-    posicionUltimoChoquesPasado = -1;
+    posicionUltimoObstaculoPasado = -1;
     iniciado=false;
     puntaje=0;
-    if(!choquesT.loadFromFile("assets/image/tubo.png"))
+    if(!obstaculoT.loadFromFile("assets/image/tubo.png"))
     {
         std::cout<<"Error al cargar la textura"<<std::endl;
     }
@@ -17,8 +17,8 @@ Variacion_de_posicion::Variacion_de_posicion()
 
     srand(time(NULL));
 
-    choques.push_back(Choques(choquesT,500,100+rand()%250));
-    choques.push_back(Choques(choquesT,850,100+rand()%250));
+    obstaculos.push_back(Obstaculo(obstaculoT,500,100+rand()%250));
+    obstaculos.push_back(Obstaculo(obstaculoT,850,100+rand()%250));
 
     sf::Sprite nSprite;
 
@@ -48,33 +48,33 @@ void Variacion_de_posicion::Actualizar()
         bases[i].move(-2.5f,0);
     }
     if(!iniciado) return;
-    int ultimo=(int)choques.size()-1;
-    for(int i=0; i<(int)choques.size(); i++)
+    int ultimo=(int)obstaculos.size()-1;
+    for(int i=0; i<(int)obstaculos.size(); i++)
 {
-    if(choques[i].GetPosicion().x < 100 && choques[i].GetPosicion().x > posicionUltimoChoquesPasado)
+    if(obstaculos[i].GetPosicion().x < 100 && obstaculos[i].GetPosicion().x > posicionUltimoObstaculoPasado)
     {
         puntaje += 10;
-        posicionUltimoChoquesPasado = choques[i].GetPosicion().x;
+        posicionUltimoObstaculoPasado = obstaculos[i].GetPosicion().x;
     }
-    if(choques[i].GetPosicion().x <= -100)
+    if(obstaculos[i].GetPosicion().x <= -100)
     {
-        choques.erase(choques.begin()+i);
+        obstaculos.erase(obstaculos.begin()+i);
         i--; // Ajustar el índice después de borrar
-        choques.push_back(Choques(choquesT, choques[ultimo].GetPosicion().x+350, 100+rand()%250));
+        obstaculos.push_back(Obstaculo(obstaculoT, obstaculos[ultimo].GetPosicion().x+350, 100+rand()%250));
         if(i < ultimo) ultimo--;
     }
 }
-        for(int i=0;i<(int)choques.size();i++)
+        for(int i=0;i<(int)obstaculos.size();i++)
         {
-            choques[i].Actualizar();
+            obstaculos[i].Actualizar();
         }
 }
 
 bool Variacion_de_posicion::Colision(sf::IntRect rect)
 {
-    for(int i=0;i<(int)choques.size();i++)
+    for(int i=0;i<(int)obstaculos.size();i++)
     {
-        if(choques[i].Colision(rect)) return true;
+        if(obstaculos[i].Colision(rect)) return true;
     }
     return false;
 }
@@ -90,6 +90,6 @@ void Variacion_de_posicion::Iniciado()
 }
 
 void Variacion_de_posicion::draw(sf::RenderTarget &rt, sf::RenderStates rs) const{
-	for(int i = 0; i < (int)choques.size(); i++) rt.draw(choques[i],rs);
+	for(int i = 0; i < (int)obstaculos.size(); i++) rt.draw(obstaculos[i],rs);
 	for(int i = 0; i < (int)bases.size(); i++) rt.draw(bases[i],rs);
 }
