@@ -2,6 +2,16 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "cmake",
+      "request": "launch",
+      "name": "CMake: Script debugging",
+      "cmakeDebugType": "script",
+      "scriptPath": "${workspaceFolder}/makefile",
+      "scriptArgs": [
+        "runmain"
+      ]
+    },
+    {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",

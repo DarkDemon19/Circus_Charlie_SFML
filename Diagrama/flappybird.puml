@@ -1,0 +1,95 @@
+@startuml FlappyBird 
+
+
+
+class Juego{
+    +Ventana()
+}
+
+class Bird{
+    -bool vida
+    -bool inciado
+    -int estado
+    -int relojEstado
+    -estados
+    -sprite
+    -float mover
+
+    +Bird(int, int)
+    +void Actualizar()
+    +void Saltar()
+    +void Muerte()
+    +bool ObtenerVida()
+    +Obtenerposicion()
+    +void Inciado()
+    +virtual void draw(RenderTarget, RenderStates)
+}
+
+class Obstaculo
+{
+    -spriteSuperior
+    -spriteInferior
+
+    +Obstaculo(sf::Texture,int,int)
+    +void Actualizar()
+    +bool Colision(sf::IntRect)
+    +GetPosicion()
+    +virtual void draw(RenderTarget, RenderStates)
+
+}
+
+class Paralaje
+{
+    -int ultimo
+    -int puntaje
+    -bool inciado
+    -obstaculoT
+    -baseT
+    -bases
+    -obstaculos
+    -int posicionUltimoObstaculoPasado
+
+    +Paralaje()
+    +void Actualizar()
+    +bool Colision(sf::IntRect)
+    +void Inciado()
+    +int Puntaje();
+    +virtual void draw(RenderTarget, RenderStates)
+}
+
+class Sonido
+{
+    -puntosBird
+    -golpeBird
+    -aleteoBird
+    -punto
+    -aleteo
+    -golpe
+    -musica
+    -fuente
+    -maxPuntajeT
+    -puntajeT
+    -int maxPuntaje
+    -int puntaje
+    -bool incializado,gameOver
+    -gameOverT
+    -gameOverS
+    -inicializadoTextura
+    -inicializadoSprite
+
+    +Sonido()
+    +void DefinirPuntaje(int)
+    +void Incializado(bool)
+    +void GameOver()
+    +void Aleteo()
+    +virtual void draw(RenderTarget, RenderStates)
+}
+
+Juego "1" *--  "1" Bird
+Juego "1" *-- "*" Obstaculo 
+Juego "1" <-- "1" Paralaje
+Juego "1" *-- "4" Sonido
+Paralaje "1" <-- "*" Obstaculo
+
+
+@enduml 
