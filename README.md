@@ -44,4 +44,4 @@ En caso de que surjan problemas al ejecutar el juego, intenta los siguientes com
     make clean 
     make runmain
 # Capturas de pantalla 
-
+Holaaa profe, si ve este mensaje es porque investigamos pero no pudimos subir las capturas pero le dejamos un link con una carpeta de drive donde puede ver las capturas y el video, muchas gracias y buenas noches :     [https://drive.google.com/drive/folders/1BFiZ9p-hlV-WNMsOwyHt5O7bljsE78Z]    (https://drive.google.com/drive/folders/1BFiZ9p-hlV-WNMsOwyHt5O7bljsEh78Z?usp=sharing)
