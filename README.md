@@ -45,3 +45,8 @@ En caso de que surjan problemas al ejecutar el juego, intenta los siguientes com
     make runmain
 # Capturas de pantalla 
 Holaaa profe, si ve este mensaje es porque investigamos pero no pudimos subir las capturas pero le dejamos un link con una carpeta de drive donde puede ver las capturas y el video, muchas gracias y buenas noches :     [https://drive.google.com/drive/folders/1BFiZ9p-hlV-WNMsOwyHt5O7bljsE78Z]    (https://drive.google.com/drive/folders/1BFiZ9p-hlV-WNMsOwyHt5O7bljsEh78Z?usp=sharing)
+
+![Captura de pantalla 2024-12-13 225742](https://github.com/user-attachments/assets/59fa0042-5dd0-4ed5-b9aa-97cf41180278)
+![Captura de pantalla 2024-12-13 225819](https://github.com/user-attachments/assets/3af4b981-91bd-464a-be48-78c3a971a000)
+![Captura de pantalla 2024-12-13 225803](https://github.com/user-attachments/assets/44aae3ac-3efc-4f8f-b59b-e6e88b6a8313)
+
