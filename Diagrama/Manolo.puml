@@ -1,12 +1,8 @@
-@startuml FlappyBird 
-
-
-
-class Videojuego{
+@startuml FlappyManolo 
+class Juego{
     +Ventana()
 }
-
-class Bird{
+class Manolo{
     -bool vida
     -bool inciado
     -int estado
@@ -14,8 +10,7 @@ class Bird{
     -estados
     -sprite
     -float mover
-
-    +Bird(int, int)
+    +Manolo(int, int)
     +void Actualizar()
     +void Saltar()
     +void Muerte()
@@ -24,21 +19,17 @@ class Bird{
     +void Inciado()
     +virtual void draw(RenderTarget, RenderStates)
 }
-
-class Choques
+class Obstaculo
 {
     -spriteSuperior
     -spriteInferior
-
-    +Choques(sf::Texture,int,int)
+    +Obstaculo(sf::Texture,int,int)
     +void Actualizar()
     +bool Colision(sf::IntRect)
     +GetPosicion()
     +virtual void draw(RenderTarget, RenderStates)
-
 }
-
-class Variacion_de_posicion
+class Variacion de parametros
 {
     -int ultimo
     -int puntaje
@@ -48,22 +39,20 @@ class Variacion_de_posicion
     -bases
     -obstaculos
     -int posicionUltimoObstaculoPasado
-
-    +Variacion_de_posicion()
+    +Paralaje()
     +void Actualizar()
     +bool Colision(sf::IntRect)
     +void Inciado()
     +int Puntaje();
     +virtual void draw(RenderTarget, RenderStates)
 }
-
 class Audio
 {
-    -puntosBird
-    -golpeBird
-    -aleteoBird
+    -puntosManolo
+    -golpeManolo
+    -vueloManolo
     -punto
-    -aleteo
+    -vuelo
     -golpe
     -musica
     -fuente
@@ -76,20 +65,16 @@ class Audio
     -gameOverS
     -inicializadoTextura
     -inicializadoSprite
-
-    +Audio()
+    +Sonido()
     +void DefinirPuntaje(int)
     +void Incializado(bool)
     +void GameOver()
-    +void Aleteo()
+    +void Vuelo()
     +virtual void draw(RenderTarget, RenderStates)
 }
-
-Videojuego "1" *--  "1" Bird
-Videojuego "1" *-- "*" Choques 
-Videojuego "1" <-- "1" Variacion_de_posicion
-Videojuego "1" *-- "4" Audio
-Variacion_de_posicion "1" <-- "*" Choques
-
-
-@enduml 
+Juego "1" *--  "1" Manolo
+Juego "1" *-- " *" Obstaculo 
+Juego "1" <-- "1" Vatiacion de parametros
+Juego "1" *-- "4" Audio
+Paralaje "1" <-- "*" Obstaculo
+@enduml

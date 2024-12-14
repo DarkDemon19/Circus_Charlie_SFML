@@ -44,7 +44,7 @@ void Videojuego::Ventana()
     while (ventana.isOpen())
     {
         Manolo *manolo = new Manolo(210, 350);
-        Variacion_de_posicion *variacion_de_posicion = new Variacion_de_posicion();
+        Paralaje *variacion_de_posicion = new Paralaje();
         inciado = false;
         Audio *sonido = new Audio();
         sonido->Incializado(false);

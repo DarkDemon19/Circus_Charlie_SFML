@@ -1,6 +1,6 @@
 #include "..\include\Variacion_de_posicion.hpp"
 
-Variacion_de_posicion::Variacion_de_posicion()
+Paralaje::Paralaje()
 {
     ultimo=-1;
     posicionUltimoObstaculoPasado = -1;
@@ -30,7 +30,7 @@ Variacion_de_posicion::Variacion_de_posicion()
     bases.push_back(nSprite);
 }
 
-void Variacion_de_posicion::Actualizar()
+void Paralaje::Actualizar() 
 {
     for(int i=0;i<(int)bases.size();i++)
     {
@@ -59,7 +59,7 @@ void Variacion_de_posicion::Actualizar()
     if(obstaculos[i].GetPosicion().x <= -100)
     {
         obstaculos.erase(obstaculos.begin()+i);
-        i--; // Ajustar el índice después de borrar
+        i--; // Ajustar el Ã­ndice despuÃ©s de borrar
         obstaculos.push_back(Obstaculo(obstaculoT, obstaculos[ultimo].GetPosicion().x+350, 100+rand()%250));
         if(i < ultimo) ultimo--;
     }
@@ -70,7 +70,7 @@ void Variacion_de_posicion::Actualizar()
         }
 }
 
-bool Variacion_de_posicion::Colision(sf::IntRect rect)
+bool Paralaje::Colision(sf::IntRect rect)
 {
     for(int i=0;i<(int)obstaculos.size();i++)
     {
@@ -79,17 +79,17 @@ bool Variacion_de_posicion::Colision(sf::IntRect rect)
     return false;
 }
 
-int Variacion_de_posicion::Puntaje()
+int Paralaje::Puntaje()
 {
     return puntaje;
 }
 
-void Variacion_de_posicion::Iniciado()
+void Paralaje::Iniciado()
 {
     iniciado=true;
 }
 
-void Variacion_de_posicion::draw(sf::RenderTarget &rt, sf::RenderStates rs) const{
+void Paralaje::draw(sf::RenderTarget &rt, sf::RenderStates rs) const{
 	for(int i = 0; i < (int)obstaculos.size(); i++) rt.draw(obstaculos[i],rs);
 	for(int i = 0; i < (int)bases.size(); i++) rt.draw(bases[i],rs);
 }

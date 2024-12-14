@@ -5,7 +5,7 @@ Obstaculo::Obstaculo(sf::Texture &textura, int x, int y)
     spriteSuperior.setTexture(textura);
     spriteInferior.setTexture(textura);
     spriteSuperior.setOrigin(textura.getSize().x,0);
-    spriteSuperior.setRotation(180);
+    spriteSuperior.setRotation(380);
 
     spriteSuperior.setPosition(x,y);
     spriteInferior.setPosition(x,y+150);
@@ -22,8 +22,8 @@ void Obstaculo::Actualizar()
 
 bool Obstaculo::Colision(sf::IntRect rect)
 {
-    sf::IntRect rectUp(spriteSuperior.getPosition().x+4,spriteSuperior.getPosition().y-480,70,480);
-    sf::IntRect rectDown(spriteInferior.getPosition().x+4,spriteInferior.getPosition().y,70,480);
+    sf::IntRect rectUp(spriteSuperior.getPosition().x+4,spriteSuperior.getPosition().y-800,40,800);
+    sf::IntRect rectDown(spriteInferior.getPosition().x+4,spriteInferior.getPosition().y,40,800);
     if(rectUp.intersects(rect) || rectDown.intersects(rect)) 
     {
     return true;
