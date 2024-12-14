@@ -44,5 +44,4 @@ En caso de que surjan problemas al ejecutar el juego, intenta los siguientes com
     make clean 
     make runmain
 # Capturas de pantalla 
-![image-1](https://github.com/user-attachments/assets/905812df-5de6-417c-a725-869d79144b0a)
-![image](https://github.com/user-attachments/assets/e8abe056-bf30-4752-9654-99f1f9048909)
+
