@@ -1,8 +1,0 @@
-@startuml Diagrama
-
-class Persona
-class Foco{
-    -Bool encendido
-}
-Persona o-- Foco
-@enduml

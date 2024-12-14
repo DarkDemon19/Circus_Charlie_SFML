@@ -1,4 +1,4 @@
-@startuml FlappyManolo 
+@startuml Manolo 
 class Juego{
     +Ventana()
 }
