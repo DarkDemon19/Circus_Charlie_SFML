@@ -4,45 +4,45 @@ Proyecto de Programación para diseñar un videoVideojuego 2D inspirado en Circu
 
 
 
-# Flappy Bird Game
+# Circus Charlie Game
 
-Este proyecto es una implementación simple del Videojuego Flappy Bird en C, utilizando la biblioteca SFML. El Videojuego presenta un pájaro que el jugador puede hacer saltar para evitar obstáculos en forma de tuberías que se desplazan hacia la izquierda.
+Este proyecto es una implementación simple del videojuego **Circus Charlie** en C, utilizando la biblioteca SFML, inspirado en la mecánica de **Flappy Bird**. El juego presenta un payaso que el jugador controla para realizar saltos acrobáticos a través de aros de fuego que se desplazan de manera similar a las tuberías de Flappy Bird. Al igual que en Flappy Bird, el objetivo es evitar los obstáculos, pero en este caso, los aros deben ser atravesados sin tocarlos. El juego aumenta de dificultad progresivamente, con los aros moviéndose más rápido y cambiando de altura, ofreciendo un desafío continuo al jugador.
 
 ## Estructura del Proyecto
 
-El proyecto está estructurado de la siguiente manera:
+La estructura del proyecto es la siguiente:
 
-- **bin**: Contiene los archivos binarios generados después de compilar el código.
-- **docs**: Almacena la documentación del proyecto.
-- **include**: Contiene los archivos de encabezado (.hpp) para cada clase del proyecto.
-- **src**: Contiene los archivos fuente (.cpp) del proyecto.
-- **Makefile**: Archivo Makefile para compilar y ejecutar el proyecto.
+- **bin**: Almacena los archivos ejecutables generados tras la compilación del código fuente.
+- **docs**: Contiene toda la documentación relacionada con el proyecto, incluyendo instrucciones y detalles técnicos.
+- **include**: Guarda los archivos de encabezado (.hpp) que declaran las interfaces y estructuras de las clases del proyecto.
+- **src**: Agrupa los archivos fuente (.cpp) que implementan la lógica y funcionalidades del proyecto.
+- **Makefile**: Documento que define las reglas y comandos para compilar y ejecutar el proyecto de forma eficiente.
 
 ## Diagrama de Clases
 
 El diagrama de clases del proyecto incluye las siguientes clases:
 
-- **Bird**: Representa al pájaro en el Videojuego.
-- **Tubo**: Representa las tuberías que el pájaro debe evitar.
-- **Videojuego**: Controla la lógica del Videojuego.
+- **Manolo**: Representa al payaso protagonista en el videojuego, encargado de realizar los saltos acrobáticos a través de los aros de fuego.
+- **Obstaculo**: Representa los aros de fuego que el payaso debe evitar al realizar sus saltos acrobáticos durante el juego.
+- **Videojuego**: Se encarga de gestionar la lógica principal del juego, incluyendo la interacción del jugador, el seguimiento del puntaje y el control de los obstáculos.
 
 ## Integrantes:
 
-    Luis Daniel Moreno Ortiz 20110074
+    Alan Bladimir Almaraz Cortes 23310399 
+    Jose Luis Villar Sánchez 21110341
+    Abraham Marentes Ramirez a23310382
    
 
 ## Compilación y Ejecución
 
-Para compilar el proyecto, ejecuta el siguiente comando en la terminal:
+Para compilar y ejecutar el proyecto, simplemente ingresa el siguiente comando en la terminal:
 
     make runmain
 
-en caso de que no funcione ejecutar
+En caso de que surjan problemas al ejecutar el juego, intenta los siguientes comandos para limpiar los archivos generados y recompilar:
 
     make clean 
     make runmain
-
-
 # Capturas de pantalla 
 ![image-1](https://github.com/user-attachments/assets/905812df-5de6-417c-a725-869d79144b0a)
 ![image](https://github.com/user-attachments/assets/e8abe056-bf30-4752-9654-99f1f9048909)

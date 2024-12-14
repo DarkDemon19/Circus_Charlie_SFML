@@ -30,7 +30,7 @@ void Videojuego::Ventana()
     bool inciado;
     bool presionado;
 
-    sf::RenderWindow ventana(sf::VideoMode(400, 700), "Flappy Manolo");
+    sf::RenderWindow ventana(sf::VideoMode(400, 700), "Circus Charlie");
     ventana.setFramerateLimit(60);
 
     presionado = false;
